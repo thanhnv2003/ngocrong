@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php session_start();
+//print_r($_SESSION['account']['username']);
+//die();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -116,7 +119,7 @@
 <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom header">
     <div class="d-flex flex-column flex-md-row align-items-center container">
         <a href="index.php" class="d-flex align-items-center text-dark text-decoration-none">
-            <img class="img-fluid" src="/img/nro.png" alt="" width="36" height="36">
+            <img class="img-fluid" src="img/nro.png" alt="" width="36" height="36">
             <span class="fs-5 logo-text"> NRO Zoee</span>
         </a>
 
@@ -129,7 +132,7 @@
         </nav>
 
         <a class="btn btn-outline-primary" href="/profile.php">
-            <span>thanhnv203 - 0 Coin</span>
+            <span><?php echo $_SESSION['account']['username'] ?> - Coin: 0</span>
         </a>
     </div>
 </div>
@@ -271,7 +274,7 @@
                     <a href="nap-momo.php" class="list-group-item list-group-item-action">
                         <i class="fas fa-coins me-2"></i> Nạp MOMO
                     </a>
-                    <a href="doi-mat-khau.php" class="list-group-item list-group-item-action">
+                    <a href="fotgot-password.php" class="list-group-item list-group-item-action">
                         <i class="fas fa-unlock me-2"></i> Đổi mật khẩu
                     </a>
                     <a href="logout.php" class="list-group-item list-group-item-action ">
@@ -288,7 +291,7 @@
                     <tr>
                         <th scope="row">Tài khoản đăng nhập</th>
                         <th>
-                            <div class="w-50" style='font-size:16px'>thanhnv203</div>
+                            <div class="w-50" style='font-size:16px'><?php echo $_SESSION['account']['username'] ?></div>
                         </th>
                     </tr>
                     <tr>
@@ -312,7 +315,7 @@
                     <tr>
                         <th scope="row">Địa chỉ ip</th>
                         <td>
-                            <div class="w-50" style='font-size:16px'><?php isset($_SESSION['account']) ? $_SESSION['account']['ip_address'] : '' ?></div>
+                            <div class="w-50" style='font-size:16px'><?php echo isset($_SESSION['account']) ? $_SESSION['account']['ip_address'] : '' ?></div>
                         </td>
                     </tr>
 

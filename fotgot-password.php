@@ -258,16 +258,13 @@
             <div class="row">
                 <div class="col-md-3 pb-3 pt-2">
                     <div class="list-group d-none d-sm-block">
-                        <a href="profile.php" class="list-group-item list-group-item-action">
+                        <a href="profile.php" class="list-group-item list-group-item-action  ">
                             <i class="fas fa-user me-2"></i> Thông tin tài khoản
                         </a>
-                        <a href="nap-tien.php" class="list-group-item list-group-item-action">
-                            <i class="fas fa-coins me-2"></i> Nạp thẻ cào
+                        <a href="nhiem-vu.php" class="list-group-item list-group-item-action ">
+                            <i class="fas fa-coins me-2" ></i> Làm nhiệm vụ
                         </a>
-                        <a href="nap-momo.php" class="list-group-item list-group-item-action">
-                            <i class="fas fa-coins me-2"></i> Nạp ATM
-                        </a>
-                        <a href="doi-mat-khau.php" class="list-group-item list-group-item-action active">
+                        <a href="fotgot-password.php" class="list-group-item list-group-item-action active">
                             <i class="fas fa-unlock me-2"></i> Đổi mật khẩu
                         </a>
                         <a href="logout.php" class="list-group-item list-group-item-action ">

@@ -3,7 +3,6 @@ session_start();
 include "../config/conn.php";
 $conn = pdo_get_connection();
 $id_user = $_SESSION['account']['id'];
-
 $location = 'http://localhost/game_web/';
 if (isset($_POST['submit'])){
     $player = "SELECT * FROM player WHERE account_id = '$id_user'";

@@ -38,5 +38,4 @@ if (isset($_SESSION['account']) && $_GET['act'] != ''){
 
 }
 
-
 ?>

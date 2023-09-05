@@ -121,20 +121,26 @@ include "./config/conn.php";
     <div class="d-flex flex-column flex-md-row align-items-center container">
         <a href="index.php" class="d-flex align-items-center text-dark text-decoration-none">
             <img class="img-fluid" src="img/nro.png" alt="" width="36" height="36">
-            <span class="fs-5 logo-text"> NRO ZOE 5.0</span>
+            <span class="fs-5 logo-text"> NRO CUI</span>
         </a>
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto" style="font-weight: 500">
             <!-- <a class="me-3 py-2 text-dark text-decoration-none" href="tai-ve.php">Tải về</a> -->
-            <a class="me-3 py-2 text-dark text-decoration-none" href="nap-tien.php">Nạp Thẻ</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="nap-momo.php">Nạp ATM</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="login.php">Nạp Thẻ</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="login.php">Nạp ATM</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="top-suc-manh.php">Top Máy chủ</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" target="_blank" href="https://zalo.me/g/trfqqd669">BOX ZALO</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" target="_blank" href="https://zalo.me/g/beipaq298">BOX ZALO</a>
         </nav>
 
-        <a class="btn btn-outline-primary" href="/profile.php">
-            <span><?php echo $_SESSION['account']['username'] ?> - Coin: 0</span>
-        </a>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <?php if (isset($_SESSION['account']) && $_SESSION['account'] != ''){
+                ?>
+                <a class="btn btn-outline-primary no-login" href="profile.php" style="font-weight: 500"><?php echo $_SESSION['account']['username']?></a>
+            <?php }else{ ?>
+                <a class="btn btn-outline-primary no-login" href="login.php" style="font-weight: 500">Đăng nhập</a>
+            <?php } ?>
+
+        </nav>
     </div>
 </div>
 </body>

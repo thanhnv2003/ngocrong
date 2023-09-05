@@ -122,7 +122,7 @@ session_start();
     <div class="d-flex flex-column flex-md-row align-items-center container">
         <a href="index.php" class="d-flex align-items-center text-dark text-decoration-none">
             <img class="img-fluid" src="img/nro.png" alt="" width="36" height="36">
-            <span class="fs-5 logo-text"> NRO Zoee</span>
+            <span class="fs-5 logo-text"> NRO CUI</span>
         </a>
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto" style="font-weight: 500">
@@ -416,21 +416,21 @@ session_start();
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">NRO Zoee</h5>
+                <h5 class="modal-title" id="exampleModalLabel">NRO CUI</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p><b style="color:red">Thông Báo : Chào Mừng Bạn Đến Với Trang Chủ Ngọc Rồng NRO Zoee</b></p>
+                <p><b style="color:red">Thông Báo : Chào Mừng Bạn Đến Với Trang Chủ Ngọc Rồng NRO CUI</b></p>
                 <b>
-                    <p class="mb-0">Sever đang mở test yêu cầu ae k nạp</p>
+                    <p class="mb-0">Sever đang mở test</p>
                 </b>
                 <b>
-                    <p class="mb-0" style="color:red">Nhóm Tin Tức Từ  Admin Hướng Đẹp Trai</p>
+                    <p class="mb-0" style="color:red">Nhóm Tin Tức Từ Admin Hướng Đẹp Trai</p>
                 </b>
                 <b>
-                    <p class="mb-0" style="color:red">Thân ái, Ngọc Rồng NRO Zoee</p>
+                    <p class="mb-0" style="color:red">Thân ái, Ngọc Rồng NRO CUI</p>
                 </b>
             </div>
             <div class="modal-footer">
@@ -500,7 +500,7 @@ session_start();
             </div>
             <div class="center">
                 <div class="title-behavior">
-                    <marquee behavior="scroll" direction="left">Chào mừng bạn đến với máy chủ NRO ZOE 5.0, Đội ngũ Admin chúc các bạn có những trải nghiệm tuyệt vời khi tham gia vào máy chủ của NRO ZOE 5.0</marquee>
+                    <marquee behavior="scroll" direction="left">Chào mừng bạn đến với máy chủ NRO CUI v1, Đội ngũ Admin chúc các bạn có những trải nghiệm tuyệt vời khi tham gia vào máy chủ của NRO CUI v1</marquee>
                 </div>
             </div>
             <style>

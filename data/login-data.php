@@ -26,7 +26,7 @@ $response = array(
 );
 
 // Lấy thông tin người dùng từ cơ sở dữ liệu dựa trên tên đăng nhập
-$query = "SELECT id, username, password, ip_address FROM account WHERE username = ?";
+$query = "SELECT id, username, password, ip_address, is_admin FROM account WHERE username = ?";
 $stmt = $conn->prepare($query);
 $stmt->execute([$user]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -42,6 +42,7 @@ if ($user && $pass == $user['password']) {
     $updateIpQuery = "UPDATE account SET ip_address = ? WHERE id = ?";
     $stmt = $conn->prepare($updateIpQuery);
     $stmt->execute([$ip_address, $user['id']]);
+
 
 } else {
     // Đăng nhập thất bại

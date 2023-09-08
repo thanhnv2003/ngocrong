@@ -417,6 +417,11 @@ include "./config/conn.php";
                         <a href="profile.php" class="list-group-item list-group-item-action  ">
                             <i class="fas fa-user me-2"></i> Thông tin tài khoản
                         </a>
+                        <?php if($_SESSION['account']['is_admin'] == 1){ ?>
+                            <a href="dashboard.php" class="list-group-item list-group-item-action ">
+                                <i class="fas fa-user me-2"></i> Đăng nhập quản trị
+                            </a>
+                        <?php } ?>
                         <a href="nhiem-vu.php" class="list-group-item list-group-item-action active">
                             <i class="fas fa-coins me-2" ></i> Làm nhiệm vụ
                         </a>

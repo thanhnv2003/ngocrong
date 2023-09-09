@@ -181,7 +181,7 @@ session_start();
     }
 
     .logo {
-        width: 250px;
+        width: 300px;
     }
 
 
@@ -462,7 +462,7 @@ session_start();
             <div class="row py-md-3">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <!-- <h2 class="fw-light">Ngọc Rồng NRO ZOE 5.0</h2> -->
-                    <img src="img/logo.png" alt="Logo" class="logo">
+                    <img src="img/logo-nro-cui.png" alt="Logo" class="logo">
                     <p class="lead text-muted">
                         <?php if (isset($_SESSION['account']) && $_SESSION['account'] != ''){
                         ?>

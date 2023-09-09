@@ -271,7 +271,7 @@
         <div id='stars3'></div>
         <form action="" class="form-signin" method="POST" id="fupForm">
             <div class="text-center mb-2">
-                <img src="img/logo.png" alt="" width="200">
+                <img src="img/logo-nro-cui.png" alt="" width="300">
             </div>
             <h1 class="h3 mb-3 fw-normal text-center">Vui lòng đăng nhập</h1>
             <label class="sr-only">Tài khoản</label>

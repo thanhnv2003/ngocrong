@@ -1,6 +1,8 @@
-<?php session_start();
-//print_r($_SESSION['account']['username']);
-//die();
+<?php
+session_start();
+if(!isset($_SESSION['account'])){
+    header('location: index.php');
+}
 ?>
 <!doctype html>
 <html lang="en">

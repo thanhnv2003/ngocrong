@@ -130,7 +130,7 @@ session_start();
             <a class="me-3 py-2 text-dark text-decoration-none" href="login.php">Nạp Thẻ</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="login.php">Nạp ATM</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="top-suc-manh.php">Top Máy chủ</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" target="_blank" href="https://zalo.me/g/beipaq298">BOX ZALO</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" target="_blank" href="https://zalo.me/g/chfwhn011">BOX ZALO</a>
         </nav>
 
         <nav class="my-2 my-md-0 mr-md-3">
@@ -427,7 +427,7 @@ session_start();
                     <p class="mb-0">Sever đang mở test</p>
                 </b>
                 <b>
-                    <p class="mb-0" style="color:red">Nhóm Tin Tức Từ Admin Hướng Đẹp Trai</p>
+                    <p class="mb-0" style="color:red">Nhóm Tin Tức Từ Admin <a href="https://zalo.me/g/chfwhn011">Hậu Dev</a></p>
                 </b>
                 <b>
                     <p class="mb-0" style="color:red">Thân ái, Ngọc Rồng NRO CUI</p>

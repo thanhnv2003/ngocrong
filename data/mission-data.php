@@ -24,18 +24,18 @@ if (isset($_POST['submit'])){
                 $token = uniqid();
                 $sql = "INSERT INTO `history_mission` (`id`, `id_user`, `level_mission`, `coin`, `token`, `status`, `create_at`) VALUES (NULL, $id_user, $level_misson, $coin, '$token', $status, CURRENT_TIMESTAMP)";
                 $result = pdo_execute($sql);
-//                $long_url = urlencode('http://localhost/game_web/get-coin.php?act='.$token);
-                $long_url = urlencode('https://www.youtube.com/');
+                $long_url = urlencode('http://localhost/game_web/get-coin.php?act='.$token);
+//                $long_url = urlencode('https://www.youtube.com/');
                 $api_token = '4e454578-0b5e-4f56-9c84-b1e8d89175af';
                 $api_url = "https://web1s.com/api?token={$api_token}&url={$long_url}&alias={$token}";
                 $result = @json_decode(file_get_contents($api_url),TRUE);
 
-            if($result["status"] === 'error') {
-                echo $result["message"];
-            } else {
-                header('location: '.$result["shortenedUrl"]);
-//                echo $result["shortenedUrl"];
-            }
+                if($result["status"] === 'error') {
+                    echo $result["message"];
+                } else {
+                    header('location: '.$result["shortenedUrl"]);
+    //                echo $result["shortenedUrl"];
+                }
                 break;
             case 2:
 //                echo 1243;
@@ -45,9 +45,19 @@ if (isset($_POST['submit'])){
                 $status = 1;
                 $token = uniqid();
                 $sql = "INSERT INTO `history_mission` (`id`, `id_user`, `level_mission`, `coin`, `token`, `status`, `create_at`) VALUES (NULL, $id_user, $level_misson, $coin, '$token', $status, CURRENT_TIMESTAMP)";
-//                print_r($sql);
-//                die();
                 $result = pdo_execute($sql);
+                $long_url = urlencode('http://localhost/game_web/get-coin.php?act='.$token);
+//                $long_url = urlencode('https://www.youtube.com/');
+                $api_token = '4e454578-0b5e-4f56-9c84-b1e8d89175af';
+                $api_url = "https://web1s.com/api?token={$api_token}&url={$long_url}&alias={$token}";
+                $result = @json_decode(file_get_contents($api_url),TRUE);
+
+                if($result["status"] === 'error') {
+                    echo $result["message"];
+                } else {
+                    header('location: '.$result["shortenedUrl"]);
+                    //                echo $result["shortenedUrl"];
+                }
                 break;
             case 3:
                 $level_misson = 3;

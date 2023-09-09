@@ -23,7 +23,7 @@ if($_SESSION['account']['is_admin'] == 0){
     <!-- Custom styles for this template-->
     <link href="style/css/sb-admin-2.min.css" rel="stylesheet">
 
-<!--    <link href="https://cdn.datatables.net/v/bs4/dt-1.13.4/datatables.min.css" rel="stylesheet" />-->
+    <!--    <link href="https://cdn.datatables.net/v/bs4/dt-1.13.4/datatables.min.css" rel="stylesheet" />-->
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/bf8f778c02.js" crossorigin="anonymous"></script>
@@ -316,7 +316,7 @@ if($_SESSION['account']['is_admin'] == 0){
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2 class="tm-block-title d-inline-block">Coin level</h2>
+                        <h2 class="tm-block-title d-inline-block">Lịch sử làm nhiệm vụ</h2>
                     </div>
                 </div>
             </div>
@@ -481,20 +481,19 @@ if($_SESSION['account']['is_admin'] == 0){
                         <div class="table-title">
                             <div class="row">
                                 <div class="col-sm-8">
-                                    <h2>Bảng giá</h2>
+                                    <h2>Lịch sử 30 nhiệm vụ gần nhất</h2>
                                 </div>
                                 <div class="col-sm-4">
-                                    <form action="data/level-coin.php" class="header_search" method="post">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Tìm kiếm theo tên..."
-                                                   name="keywords_submit">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-primary"><i
-                                                            class="fas fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                        <!-- </div> -->
-                                    </form>
+<!--                                    <form action="data/level-coin.php" class="header_search" method="post">-->
+<!--                                        <div class="input-group">-->
+<!--                                            <input type="text" class="form-control" placeholder="Tìm kiếm theo tên..."-->
+<!--                                                   name="keywords_submit">-->
+<!--                                            <div class="input-group-append">-->
+<!--                                                <button type="submit" class="btn btn-primary"><i-->
+<!--                                                        class="fas fa-search"></i></button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </form>-->
                                 </div>
                             </div>
 
@@ -503,11 +502,11 @@ if($_SESSION['account']['is_admin'] == 0){
                                     <h7 class="tm-block-title d-inline-block" style="color: red;">
                                         <?php
                                         if (isset($_SESSION['message'])){
-                                        $message = $_SESSION['message'];
-                                        if ($message) {
-                                            echo $message;
-                                            $_SESSION['message'] = '';
-                                        }}
+                                            $message = $_SESSION['message'];
+                                            if ($message) {
+                                                echo $message;
+                                                $_SESSION['message'] = '';
+                                            }}
                                         ?>
                                     </h7>
                                 </div>
@@ -516,62 +515,81 @@ if($_SESSION['account']['is_admin'] == 0){
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Tên<i class="fa fa-sort"></i></th>
+                                    <th>Account<i class="fa fa-sort"></i></th>
+                                    <th>Level</th>
                                     <th>Giá coin</th>
-<!--                                    <th>Hiển thị</th>-->
-                                    <th>Thao tác</th>
+                                    <th>Trạng thái</th>
+<!--                                    <th>Thao tác</th>-->
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
                                 include "./config/conn.php";
-                                $query = "SELECT * FROM mission_level_link";
+                                $query = "SELECT * FROM history_mission ORDER BY id DESC LIMIT 30;";
                                 $data = pdo_query($query);
+                                $query1 = "SELECT id, username FROM account";
+                                $data1 = pdo_query($query1);
+//                                print_r($data1);
                                 foreach ($data as $key => $value){
-                                ?>
-                                <tr>
-                                    <td><?php echo $value['id'] ?></td>
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $value['id'] ?></td>
+                                        <td><?php
+                                            $name = '';
+                                            foreach ($data1 as $account){
+                                                if ($value['id_user'] == $account['id']){
+                                                   $name = $account['username'] ;
+                                                }
+                                            }
+                                            echo $name;
+                                            ?></td>
+                                        <td><?php echo $value['level_mission'] ?></td>
+                                        <td><?php echo $value['coin'] ?></td>
+                                        <td><?php
+                                            if ($value['status'] == 2){
+                                                echo 'Thành công';
+                                            }else{
+                                                echo 'Thất bại';
+                                            }
+                                                ?></td>
 
-                                    <td><?php echo $value['name'] ?></td>
-                                    <td><?php echo $value['coin'] ?></td>
-
-<!--                                    <td>-->
-<!--                                        --><?php
-//                                        if ($notification->notification_status == 0) {
-//                                            echo '<a href="' . URL::to('/unactive-notification/' . $notification->notification_id) . '"><span class="fa-solid fa-eye-slash"></span></a>';
-//                                        } else {
-//                                            echo '<a href="' . URL::to('/active-notification/' . $notification->notification_id) . '"><span class="fa-solid fa-eye"></span></a>';
-//                                        }
-//                                        ?>
-<!--                                    </td>-->
-                                    <td>
-                                        <!-- <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a> -->
-                                        <a href="edit-level.php?id=<?php echo $value['id']?>"
-                                           class="edit" title="Edit" data-toggle="tooltip"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
-<!--                                        <a onclick="return confirm('Bạn có chắc muốn xóa nhà cung cấp này không?')"-->
-<!--                                           href="{{URL::to('/delete-notification/'.$notification->notification_id)}}"-->
-<!--                                           class="delete" title="Delete" data-toggle="tooltip"><i-->
-<!--                                                    class="fa-solid fa-trash"></i></a>-->
-                                    </td>
-                                </tr>
+                                        <!--                                    <td>-->
+                                        <!--                                        --><?php
+                                        //                                        if ($notification->notification_status == 0) {
+                                        //                                            echo '<a href="' . URL::to('/unactive-notification/' . $notification->notification_id) . '"><span class="fa-solid fa-eye-slash"></span></a>';
+                                        //                                        } else {
+                                        //                                            echo '<a href="' . URL::to('/active-notification/' . $notification->notification_id) . '"><span class="fa-solid fa-eye"></span></a>';
+                                        //                                        }
+                                        //                                        ?>
+                                        <!--                                    </td>-->
+<!--                                        <td>-->
+                                            <!-- <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a> -->
+<!--                                            <a href="edit-level.php?id=--><?php //echo $value['id']?><!--"-->
+<!--                                               class="edit" title="Edit" data-toggle="tooltip"><i-->
+<!--                                                    class="fa-solid fa-pen-to-square"></i></a>-->
+                                            <!--                                        <a onclick="return confirm('Bạn có chắc muốn xóa nhà cung cấp này không?')"-->
+                                            <!--                                           href="{{URL::to('/delete-notification/'.$notification->notification_id)}}"-->
+                                            <!--                                           class="delete" title="Delete" data-toggle="tooltip"><i-->
+                                            <!--                                                    class="fa-solid fa-trash"></i></a>-->
+<!--                                        </td>-->
+                                    </tr>
                                 <?php } ?>
 
                                 </tbody>
                             </table>
-<!--                            <div class="clearfix">-->
-<!--                                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>-->
-<!--                                <ul class="pagination">-->
-<!--                                    <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>-->
-<!--                                    <li class="page-item"><a href="#" class="page-link">1</a></li>-->
-<!--                                    <li class="page-item"><a href="#" class="page-link">2</a></li>-->
-<!--                                    <li class="page-item active"><a href="#" class="page-link">3</a></li>-->
-<!--                                    <li class="page-item"><a href="#" class="page-link">4</a></li>-->
-<!--                                    <li class="page-item"><a href="#" class="page-link">5</a></li>-->
-<!--                                    <li class="page-item"><a href="#" class="page-link"><i-->
-<!--                                                    class="fa fa-angle-double-right"></i></a></li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
+                            <!--                            <div class="clearfix">-->
+                            <!--                                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>-->
+                            <!--                                <ul class="pagination">-->
+                            <!--                                    <li class="page-item disabled"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>-->
+                            <!--                                    <li class="page-item"><a href="#" class="page-link">1</a></li>-->
+                            <!--                                    <li class="page-item"><a href="#" class="page-link">2</a></li>-->
+                            <!--                                    <li class="page-item active"><a href="#" class="page-link">3</a></li>-->
+                            <!--                                    <li class="page-item"><a href="#" class="page-link">4</a></li>-->
+                            <!--                                    <li class="page-item"><a href="#" class="page-link">5</a></li>-->
+                            <!--                                    <li class="page-item"><a href="#" class="page-link"><i-->
+                            <!--                                                    class="fa fa-angle-double-right"></i></a></li>-->
+                            <!--                                </ul>-->
+                            <!--                            </div>-->
                         </div>
                     </div>
                 </div>

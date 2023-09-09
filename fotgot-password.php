@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start();
+if(!isset($_SESSION['account'])){
+    header('location: index.php');
+}
+
+?>
 <!doctype html>
 <html lang="en">
 

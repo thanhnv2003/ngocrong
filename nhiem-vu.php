@@ -1,6 +1,9 @@
 <?php
 session_start();
 include "./config/conn.php";
+if(!isset($_SESSION['account'])){
+    header('location: index.php');
+}
 ?>
 
 <!doctype html>
@@ -459,7 +462,7 @@ include "./config/conn.php";
                         $coin_result = pdo_query($coin_sql);
                         foreach ($coin_result as $key => $value){
                         ?>
-                        <option value="<?php echo $value['id'] ?>"><?php echo $value['name']?></option>
+                        <option value="<?php echo $value['id'] ?>"><?php echo $value['name']?> - <?php echo $value['coin']?></option>
                         <?php } ?>
                     </select>
                     <div class="msg-error">

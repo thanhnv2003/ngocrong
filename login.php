@@ -284,7 +284,7 @@
                 </label>
             </div>
             <div class="msg-error"></div>
-            <button class="btn btn-primary w-100" type="submit">Đăng nhập</button>
+            <input class="btn btn-primary w-100" type="submit" value="Đăng nhập">
             <div class="text-center pt-2">
                 Bạn chưa có tài khoản? <a href="register.php">Đăng ký ngay</a>
             </div>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "./config/conn.php";
 if(!isset($_SESSION['account'])){
     header('location: index.php');
 }
@@ -313,13 +314,35 @@ if(!isset($_SESSION['account'])){
                     <tr>
                         <th scope="row">Coin</th>
                         <td>
+                            <?php
+                            $query = "SELECT * FROM player WHERE account_id = ".$_SESSION['account']['id'];
+                            $result = pdo_query_one($query);
+//                            print_r(json_decode($result['data_inventory'])[2]);
+//                            die();
+                            if ($result != ''){
+                            ?>
+                                <div class="text-danger"><b><?php echo number_format(json_decode($result['data_inventory'])[2], 0, '.', ','); ?> Coin</b></div>
+                        <?php }else{ ?>
                             <div class="text-danger"><b>0 Coin</b></div>
+                        <?php } ?>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">Tổng đã nạp</th>
                         <td>
-                            <div class="text-danger"><b>0 Coin</b>
+                            <?php
+                             $query_coin = "SELECT * FROM history_mission WHERE id_user = ".$_SESSION['account']['id']." AND status = 2";
+                             $result_coin = pdo_query($query_coin);
+                             if ($result_coin != ''){
+                                 $total_coin = 0;
+                                 foreach ($result_coin as $coin){
+                                     $total_coin += $coin['coin'];
+                                 }
+                                 ?>
+                            <div class="text-danger"><b><?php echo number_format($total_coin, 0, '.', ','); ?> Coin</b>
+                                <?php }else{ ?>
+                                <div class="text-danger"><b>0 Coin</b>
+                                <?php } ?>
                         </td>
                     </tr>
                     <tr>
